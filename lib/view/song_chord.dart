@@ -74,13 +74,13 @@ class _SongchordPageState extends State<SongchordPage> {
                     children: [
                       //contexnt lyrics chords
                       Container(
-                        padding: const EdgeInsets.all(10.0)
-                            .copyWith(top: 200, bottom: 100),
+                        padding: const EdgeInsets.all(14.0)
+                            .copyWith(top: 220, bottom: 100),
                         width: double.infinity,
                         color:  isLightmode ? AppColors.white : AppColors.charcoal,
                         child: Text(
                           widget.song.content.toString(),
-                          style: TextStyle(fontSize: fontsize),
+                          style: TextStyle(fontSize: fontsize,height: 1.5, letterSpacing: 1.0),
                         ),
                       ),
                       //top
@@ -209,6 +209,7 @@ class _SongchordPageState extends State<SongchordPage> {
                                   Text(
                                     widget.song.artist,
                                     overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
                                     style : TextStyle(color: AppColors.white7, fontSize: 15, fontWeight: FontWeight.w400,letterSpacing: 0.6),
                                   ),
                                 ],
@@ -217,13 +218,13 @@ class _SongchordPageState extends State<SongchordPage> {
                             const SizedBox(
                               width: 20,
                             ),
-                            const Expanded(
-                              flex: 1,
-                              child: Icon(
-                                FluentIcons.heart_48_filled,
-                                color: AppColors.charcoal
-                              )
-                            ),
+                            // const Expanded(
+                            //   flex: 1,
+                            //   child: Icon(
+                            //     FluentIcons.heart_48_filled,
+                            //     color: AppColors.charcoal
+                            //   )
+                            // ),
                             const SizedBox(
                               width: 10,
                             ),
@@ -238,6 +239,7 @@ class _SongchordPageState extends State<SongchordPage> {
             autoScroll 
               ? const SizedBox()
               : Container(
+                padding: const EdgeInsets.only(top: 30),
                 alignment: Alignment.centerRight,
                 height: 250,
                 width: 60,
