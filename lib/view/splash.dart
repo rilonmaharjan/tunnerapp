@@ -22,14 +22,14 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     // Create an animation controller for 3 seconds
     _controller = AnimationController(
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 4),
       vsync: this,
     );
 
     // Create a curved animation for bounce effect
     _bounceAnimation = CurvedAnimation(
       parent: _controller,
-      curve: Curves.bounceInOut,
+      curve: Curves.bounceIn,
     );
 
     // Create a spin animation that rotates the image as it bounces
@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         // Wait for a moment and navigate to the next page
-        Timer(const Duration(milliseconds: 500), () {
+        Timer(const Duration(milliseconds: 100), () {
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
         });
       }
@@ -67,8 +67,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               animation: _controller,
               builder: (context, child) {
                 return Transform.translate(
-                  // Bounce around the middle: -50 for upward and +50 for downward motion
-                  offset: Offset(0, 100 * (1 - _bounceAnimation.value)),
+                  offset: Offset(0, 200 * (1 - _bounceAnimation.value)),
                   child: Transform.rotate(
                     angle: _spinAnimation.value, 
                     child: ClipRRect(
